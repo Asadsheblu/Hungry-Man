@@ -1,3 +1,8 @@
+const toggler=disPlayStyle=>{
+    const spinner=document.getElementById('spinner')
+    spinner.style.display=disPlayStyle
+}
+
 const food=()=>{
     const search=document.getElementById('search')
     const searchText=search.value ;
@@ -6,9 +11,12 @@ const food=()=>{
     details.innerHTML=''
     const eroor=document.getElementById('demo')
     eroor.innerHTML=''
+    //disply spinner
+    toggler('block')
     if(searchText==""){
         const eroor=document.getElementById('demo')
         eroor.innerHTML='Please Search Any Kinds OF food'
+        toggler('none')
     }
     else{
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
@@ -24,6 +32,7 @@ const displayData=(id)=>{
     if(id==null){
         const eroor=document.getElementById('demo')
         eroor.innerHTML='Please Search right food'
+        toggler('none')
     }
     else{
         id.forEach(data=>{
@@ -41,6 +50,8 @@ const displayData=(id)=>{
         `
             section.appendChild(div)
         })
+        //stop spinner
+        toggler('none')
     }
 
         
