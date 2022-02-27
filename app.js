@@ -31,11 +31,13 @@ const displayData=(id)=>{
     section.textContent=''
     if(id==null){
         const eroor=document.getElementById('demo')
-        eroor.innerHTML='Please Search right food'
+        eroor.innerHTML='ooppss!Your Search Result is not found'
+        //spinner none
         toggler('none')
     }
     else{
-        id.forEach(data=>{
+        //? channing kora hoice
+        id?.forEach(data=>{
             const div=document.createElement('div')
             div.classList.add('col')
         div.innerHTML=`
